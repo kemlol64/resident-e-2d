@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://u68ace33yms2"]
+
+[ext_resource type="Texture2D" uid="uid://da222fpbn2xt" path="res://Goddot assets/Free/Items/Fruits/Apple.png" id="1_nn6v7"]
+[ext_resource type="Script" uid="uid://rvc60r0lqj0o" path="res://pomme.gd" id="1_ydkjr"]
+[ext_resource type="Script" uid="uid://bwwns3qycu6k5" path="res://Objet.gd" id="2_t663s"]
+
+[sub_resource type="Resource" id="Resource_n0uni"]
+script = ExtResource("2_t663s")
+metadata/_custom_type_script = "uid://bwwns3qycu6k5"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ydkjr"]
+radius = 27.856777
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t663s"]
+atlas = ExtResource("1_nn6v7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n0uni"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t663s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D" unique_id=1816761192]
+script = ExtResource("1_ydkjr")
+data = SubResource("Resource_n0uni")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1189088170]
+shape = SubResource("CircleShape2D_ydkjr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D" unique_id=1368156754]
+sprite_frames = SubResource("SpriteFrames_n0uni")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

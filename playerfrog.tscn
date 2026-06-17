@@ -1,38 +1,7 @@
 [gd_scene format=3 uid="uid://bq0dsegprgbyv"]
 
 [ext_resource type="Texture2D" uid="uid://cmt222vn4foof" path="res://Goddot assets/Free/Main Characters/Ninja Frog/Idle (32x32).png" id="1_inx5y"]
-
-[sub_resource type="GDScript" id="GDScript_inx5y"]
-script/source = "extends CharacterBody2D
-
-
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
-
-
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis(\"ui_left\", \"ui_right\")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
-	move_and_slide()
-
-
-func _on_l_damage_box_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.
-"
+[ext_resource type="Script" uid="uid://jrlg505gxblh" path="res://Scripts/playerfrog.gd" id="1_js7e2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_js7e2"]
 atlas = ExtResource("1_inx5y")
@@ -128,7 +97,7 @@ size = Vector2(37, 65)
 size = Vector2(75, 49)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1321808308]
-script = SubResource("GDScript_inx5y")
+script = ExtResource("1_js7e2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2013291761]
 position = Vector2(1, 0)
@@ -157,3 +126,15 @@ position = Vector2(-131, -2)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="R_damage_Box" unique_id=737553910]
 position = Vector2(65, 17)
 shape = SubResource("RectangleShape2D_inx5y")
+
+[node name="E_label" type="Label" parent="." unique_id=1045705344]
+visible = false
+offset_left = -11.0
+offset_top = -66.0
+offset_right = 15.5
+offset_bottom = -43.0
+text = "[E]"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+uppercase = true

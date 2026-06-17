@@ -37,3 +37,4 @@ shape = SubResource("CircleShape2D_ydkjr")
 sprite_frames = SubResource("SpriteFrames_n0uni")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -40,7 +40,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if Input.is_action_pressed("Attack"): # si ont presse sur le boutton attack 
-		print("attack!!")
 		Attack()
 		
 # VERIFYING AREA FUNCTION /////////////////////////////
@@ -49,8 +48,6 @@ func VerifyArea(area: Area2D):
 	var intrus= area.get_parent()
 	if intrus.is_in_group("enemy"):
 		print("Enemy en vue")
-	elif intrus.is_in_group("Objet"):
-		print("ooh un objet")
 
 # ATTACKING FUNCTION //////////////////////////////
 
@@ -60,8 +57,7 @@ func Attack(enemy:Node2D = null):
 	
 # RAMASSER FUNCTION //////////////////////
 
-func ramasser(objet: Objet):
-	inventary.append(objet)
+func ramasser(data: Objet):
 	print("item picked up go check it !!")
 
 	

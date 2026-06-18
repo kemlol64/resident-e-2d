@@ -4,12 +4,14 @@ extends CharacterBody2D
 @onready var sprite2D = $AnimatedSprite2D
 @onready var LeftDamageBox =$L_damage_Box
 @onready var RightDamageBox =$R_damage_Box
-@onready var interactlabel = $E_label
+@onready var interactlabel =$E_label
+@onready var ArmeSpawn =$Node2D
 @export var health: float
 @export var stress: float
 @export var speed = 300
 @export var damage = 10
-var inventary :Array[Objet]
+@export var equiped: Arme
+var inventary :Array
 
 
 func _ready() -> void:
@@ -60,10 +62,12 @@ func Attack(enemy:Node2D = null):
 func ramasser(data: Objet):
 	print("item picked up go check it !!")
 
-	
-func CanInteract():
+func CanInteract(InteractText:String = "[E]"):
+	interactlabel.set_text(InteractText)
 	interactlabel.show()
 func CantInteract():
 	interactlabel.hide()
-	
+
+func Equiper(ArmeData: Arme):
+	ArmeSpawn.get_child(0).Texture2D =ArmeData.icon 
 	

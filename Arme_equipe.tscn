@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b6n6mvwlajuru"]
+
+[ext_resource type="Script" uid="uid://dgd2to57ricor" path="res://Arme_equipe.gd" id="1_v8qjv"]
+[ext_resource type="Script" uid="uid://dw8o8ik48ewcf" path="res://Armesresource.gd" id="2_pur7x"]
+
+[sub_resource type="Resource" id="Resource_k00gb"]
+script = ExtResource("2_pur7x")
+metadata/_custom_type_script = "uid://dw8o8ik48ewcf"
+
+[node name="ArmeEquipe" type="Node2D" unique_id=2061280357]
+script = ExtResource("1_v8qjv")
+ArmeData = SubResource("Resource_k00gb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=920042885]
+
+[node name="bulletSpawn" type="Node2D" parent="." unique_id=1526791926]

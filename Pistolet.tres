@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Arme" format=3 uid="uid://h35ogo5jxi61"]
+
+[ext_resource type="Texture2D" uid="uid://b23nptdhrprs5" path="res://PNG/pistol2.png" id="1_3fjaj"]
+[ext_resource type="Script" uid="uid://dw8o8ik48ewcf" path="res://Armesresource.gd" id="1_srpvy"]
+[ext_resource type="Resource" uid="uid://be7d3xy6xvn00" path="res://balles.tres" id="2_yea18"]
+
+[resource]
+script = ExtResource("1_srpvy")
+icon = ExtResource("1_3fjaj")
+name = "Pistolet"
+desc = "Pistolet Eagle"
+Viseur = "0"
+Damage = "10"
+Cadence = "1"
+chargeur = 8
+munition = ExtResource("2_yea18")
+metadata/_custom_type_script = "uid://dw8o8ik48ewcf"

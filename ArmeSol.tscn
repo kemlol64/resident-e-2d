@@ -1,18 +1,14 @@
 [gd_scene format=3 uid="uid://h23ls0dnabds"]
 
-[ext_resource type="Script" uid="uid://dq7g2ow4ddeel" path="res://Arme.gd" id="1_l7brs"]
-[ext_resource type="Script" uid="uid://dw8o8ik48ewcf" path="res://Armesresource.gd" id="2_ggjeu"]
-[ext_resource type="Texture2D" uid="uid://bpbayxliunvay" path="res://Spritesheet/spritesheet.png" id="2_v1c3y"]
-
-[sub_resource type="Resource" id="Resource_oj1fi"]
-script = ExtResource("2_ggjeu")
-metadata/_custom_type_script = "uid://dw8o8ik48ewcf"
+[ext_resource type="Script" uid="uid://dq7g2ow4ddeel" path="res://ArmeSol.gd" id="1_a0dke"]
+[ext_resource type="Resource" uid="uid://h35ogo5jxi61" path="res://Pistolet.tres" id="2_7epi8"]
+[ext_resource type="Texture2D" uid="uid://bpbayxliunvay" path="res://Spritesheet/spritesheet.png" id="6_ithue"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ggjeu"]
 radius = 944.59143
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oj1fi"]
-atlas = ExtResource("2_v1c3y")
+atlas = ExtResource("6_ithue")
 region = Rect2(306, 0, 153, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ew8bc"]
@@ -27,8 +23,9 @@ animations = [{
 }]
 
 [node name="Area2D" type="Area2D" unique_id=318445073]
-script = ExtResource("1_l7brs")
-ArmeData = SubResource("Resource_oj1fi")
+scale = Vector2(0.05, 0.05)
+script = ExtResource("1_a0dke")
+ArmeData = ExtResource("2_7epi8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1820258276]
 shape = SubResource("CircleShape2D_ggjeu")
@@ -37,3 +34,6 @@ shape = SubResource("CircleShape2D_ggjeu")
 position = Vector2(7.6293945e-06, 43.999996)
 scale = Vector2(9.417893, 6.8037496)
 sprite_frames = SubResource("SpriteFrames_ew8bc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

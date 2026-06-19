@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="Objet" format=3 uid="uid://be7d3xy6xvn00"]
 
-[ext_resource type="Texture2D" uid="uid://b04udfafhwams" path="res://PNG/small_bullet2.png" id="1_is3ty"]
+[ext_resource type="Texture2D" uid="uid://biq26mjvufdvp" path="res://PNG/small_bullet3.png" id="1_is3ty"]
 [ext_resource type="Script" uid="uid://bwwns3qycu6k5" path="res://Objet.gd" id="1_uuyvd"]
 
 [resource]
 script = ExtResource("1_uuyvd")
-nom = "Balle Pistolet"
+nom = "balle pistolet"
 icon = ExtResource("1_is3ty")
 metadata/_custom_type_script = "uid://bwwns3qycu6k5"

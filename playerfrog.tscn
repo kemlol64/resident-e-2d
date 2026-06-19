@@ -107,7 +107,7 @@ autoplay = "default"
 frame_progress = 0.7916498
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1954909421]
-position = Vector2(4, 16)
+position = Vector2(2, 12)
 shape = SubResource("RectangleShape2D_0dtq6")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1180957521]
@@ -140,4 +140,4 @@ autowrap_mode = 2
 uppercase = true
 
 [node name="GunSpawn" type="Node2D" parent="." unique_id=769008474]
-position = Vector2(34, 22)
+position = Vector2(0, 21)

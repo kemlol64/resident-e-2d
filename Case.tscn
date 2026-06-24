@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://yaj8hwdb3jtv"]
+
+[ext_resource type="Script" uid="uid://ddvlt3sxu45gm" path="res://case.gd" id="1_xnq1f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnq1f"]
+bg_color = Color(0.54610765, 0.59861505, 0.7299109, 1)
+
+[node name="Panel" type="Panel" unique_id=2013461924]
+custom_minimum_size = Vector2(420, 420)
+offset_right = 420.0
+offset_bottom = 424.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xnq1f")
+script = ExtResource("1_xnq1f")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=6437190]
+layout_mode = 0
+offset_right = 365.0
+offset_bottom = 360.0
+
+[node name="Label" type="Label" parent="." unique_id=2039240561]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 368.0
+offset_right = 413.0
+offset_bottom = 419.0

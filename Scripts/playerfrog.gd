@@ -12,7 +12,8 @@ extends CharacterBody2D
 @export var Armequiped: Arme
 var armes = preload("res://Arme_equipe.tscn")
 var balle = preload("res://ballePistol.tscn")
-var inventary :Array
+var inventory :Array
+@onready var inventaire_UI=$CanvasLayer/InventaireUI
 
 func _ready() -> void:
 	LeftDamageBox.area_entered.connect(VerifyArea)
@@ -39,8 +40,21 @@ func _physics_process(delta: float) -> void:
 		Attack()
 	if Input.is_action_pressed("Shout"):
 		shoot()
+	
+
+		
 
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("inventaire"):
+		print("touche inventaire pressée !")
+		if inventaire_UI.visible==true:
+			inventaire_UI.hide()
+			get_tree().paused = false
+		else :
+			inventaire_UI.refresh_inventory(inventory)
+			inventaire_UI.show()
+			get_tree().paused = true
+			
 	if Armequiped == null:
 		return
 
@@ -127,3 +141,44 @@ func shoot():
 
 func changer_direction(noeud: Node2D) -> void:
 	noeud.scale.x *= -1
+
+func fullList(list:Array):
+	for i in range(list.size()):
+		if list[i]==null : return false
+	return true
+	
+func add_to_inventary(objet:Objet):
+	if fullList(inventory):
+		print("Liste Pleine")
+		return false
+
+	for slot in inventory:
+		if slot.nom == objet.nom:
+			slot.quantite += 1
+			return
+				
+	var item = Objet.new()
+	item.nom = objet.nom
+	item.type = objet.type
+	item.icon = objet.icon
+	item.description = objet.description
+	item.quantite = 1
+	item.recover = objet.recover
+	inventory.append(item)
+
+func miness_Item(item):
+	for i in range(inventory.size()):
+		if(inventory[i].nom==item.nom):
+			inventory[i].quantite-=1
+			print("1 element retire de l'item"+inventory[i].nom+": restant :"+str(inventory[i].quantite))
+			if inventory[i].quantite <= 0:
+				inventory.remove_at(i)
+			return true
+
+func remove_from_inventory(item):
+	for i in range(inventory.size()):
+		if(inventory[i].nom==item.nom):
+			inventory.remove_at(i)
+			print("element supprime de l'inventaire")
+			return true
+	

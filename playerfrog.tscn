@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cmt222vn4foof" path="res://Goddot assets/Free/Main Characters/Ninja Frog/Idle (32x32).png" id="1_inx5y"]
 [ext_resource type="Script" uid="uid://jrlg505gxblh" path="res://Scripts/playerfrog.gd" id="1_js7e2"]
+[ext_resource type="PackedScene" uid="uid://bf6ybf27xxgow" path="res://inventaire_ui.tscn" id="3_yfy1e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_js7e2"]
 atlas = ExtResource("1_inx5y")
@@ -97,6 +98,7 @@ size = Vector2(37, 65)
 size = Vector2(75, 49)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1321808308 groups=["Player"]]
+process_mode = 3
 script = ExtResource("1_js7e2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2013291761]
@@ -141,3 +143,8 @@ uppercase = true
 
 [node name="GunSpawn" type="Node2D" parent="." unique_id=769008474]
 position = Vector2(0, 21)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1722366283]
+
+[node name="InventaireUI" parent="CanvasLayer" unique_id=484283687 instance=ExtResource("3_yfy1e")]
+process_mode = 3

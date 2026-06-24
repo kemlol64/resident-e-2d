@@ -92,7 +92,7 @@ animations = [{
 size = Vector2(16, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qi2p4"]
-size = Vector2(63, 43)
+size = Vector2(61, 46)
 
 [node name="enemy" type="CharacterBody2D" unique_id=846645705 groups=["enemy"]]
 script = ExtResource("1_4gyqm")
@@ -109,5 +109,5 @@ shape = SubResource("RectangleShape2D_doop2")
 [node name="Area2D" type="Area2D" parent="." unique_id=645437954]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=569525617]
-position = Vector2(1.5, 1.5)
+position = Vector2(0.5, 3)
 shape = SubResource("RectangleShape2D_qi2p4")

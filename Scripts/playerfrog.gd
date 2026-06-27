@@ -12,7 +12,7 @@ extends CharacterBody2D
 @export var Armequiped: Arme
 var armes = preload("res://Arme_equipe.tscn")
 var balle = preload("res://ballePistol.tscn")
-var inventory :Array
+var inventory =[]
 @onready var inventaire_UI=$CanvasLayer/InventaireUI
 
 func _ready() -> void:
@@ -103,8 +103,11 @@ func Attack(enemy: Node2D = null):
 
 # RAMASSER FUNCTION //////////////////////
 func ramasser(Objetdata: Objet = null, Armedata: Arme = null):
-	print("item picked up go check it !!")
-
+	if Armedata==null and Objetdata != null:
+		add_to_inventary(Objetdata)
+		for i in range(inventory.size()):
+			print(""+inventory[i].nom+",")
+		inventaire_UI.refresh_inventory(inventory)
 func CanInteract(InteractText: String = "[E]"):
 	interactlabel.set_text(InteractText)
 	interactlabel.show()
@@ -148,7 +151,7 @@ func fullList(list:Array):
 	return true
 	
 func add_to_inventary(objet:Objet):
-	if fullList(inventory):
+	if inventory.size()==10:
 		print("Liste Pleine")
 		return false
 

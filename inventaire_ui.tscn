@@ -6,29 +6,17 @@
 bg_color = Color(0.8000394, 0.5059491, 0.5285767, 1)
 
 [node name="InventaireUI" type="Control" unique_id=484283687]
-visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1151.0
-offset_bottom = 651.0
+offset_right = 929.0
+offset_bottom = 544.0
 script = ExtResource("1_wo248")
 
 [node name="Panel" type="Panel" parent="." unique_id=60834493]
 layout_mode = 0
-offset_right = 1150.0
-offset_bottom = 644.0
+offset_right = 906.0
+offset_bottom = 561.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_dluds")
-
-[node name="Label" type="Label" parent="Panel" unique_id=1488633809]
-layout_mode = 0
-offset_left = 510.0
-offset_top = 24.0
-offset_right = 614.0
-offset_bottom = 73.0
-text = "Inventaire
-"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="Panel" unique_id=1125284565]
 layout_mode = 0
@@ -36,4 +24,4 @@ offset_left = 61.0
 offset_top = 110.0
 offset_right = 1072.0
 offset_bottom = 553.0
-columns = 5
+columns = 2

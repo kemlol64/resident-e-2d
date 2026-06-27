@@ -13,11 +13,13 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+#Cette fonction sert a creer les slots dans l'inventaire
 func initialise_inventory():
 	for i in range(MAX_INVENTORY_CASES):
 		var slot=case.instantiate()
 		grid.add_child(slot)
-		slots.append(slot)
+		slots.append(slot) #Ici ont met les cases cree dans un tableau pour pouvoir y acceder avec leurs index
 	hide()
 
 func refresh_inventory(inventory: Array):

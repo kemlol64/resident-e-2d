@@ -10,12 +10,16 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-func set_item(item:Objet,index:int):
+
+#Cette fonction permet de remplir une case par un objet elle prend l'objet a mettre
+#dans la case si la case doit etre vide elle reste vide sinon ont y met l'icon de l'objet
+#ainsi que sa quantite dans label
+func set_item(item:Objet,index:int): #item objet a mettre dans la case , index c'est l'indes de la case (a voir utilite dans le script inventaire)
 	var case_index=index
-	if(item==null):
+	if(item==null):#Si la case ne contient pas encore d'ojet
 		itemTexture.texture=null
 		ItemQuantity.text=""
-	else :
+	else :#Si la case contient un objet de l'inventaire
 		itemTexture.texture=item.icon
 		ItemQuantity.text=str(item.quantite)
 	

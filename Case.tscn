@@ -4,22 +4,36 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnq1f"]
 bg_color = Color(0.54610765, 0.59861505, 0.7299109, 1)
+border_width_left = 2
 
 [node name="Panel" type="Panel" unique_id=2013461924]
-custom_minimum_size = Vector2(420, 420)
-offset_right = 420.0
-offset_bottom = 424.0
+custom_minimum_size = Vector2(150, 150)
+offset_right = 400.0
+offset_bottom = 400.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xnq1f")
 script = ExtResource("1_xnq1f")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=6437190]
-layout_mode = 0
-offset_right = 365.0
-offset_bottom = 360.0
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+offset_left = 35.0
+offset_top = 12.0
+offset_right = 335.0
+offset_bottom = 312.0
+expand_mode = 1
+stretch_mode = 6
 
 [node name="Label" type="Label" parent="." unique_id=2039240561]
+custom_minimum_size = Vector2(403, 74)
 layout_mode = 0
-offset_left = 10.0
-offset_top = 368.0
-offset_right = 413.0
-offset_bottom = 419.0
+offset_left = -2.0
+offset_top = 327.0
+offset_right = 401.0
+offset_bottom = 401.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="." unique_id=432249525]
+anchors_preset = 0
+offset_right = 405.0
+offset_bottom = 415.0

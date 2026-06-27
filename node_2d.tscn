@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://u68ace33yms2" path="res://pomme.tscn" id="3_0hol4"]
 [ext_resource type="PackedScene" uid="uid://bq0dsegprgbyv" path="res://playerfrog.tscn" id="3_epypp"]
 [ext_resource type="PackedScene" uid="uid://h23ls0dnabds" path="res://ArmeSol.tscn" id="4_0hol4"]
+[ext_resource type="PackedScene" uid="uid://cp8cmvvn3ngqj" path="res://poire.tscn" id="5_q6r6c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hol4"]
 texture = ExtResource("1_0e48y")
@@ -74,8 +75,14 @@ tile_set = SubResource("TileSet_q6r6c")
 [node name="CharacterBody2D" parent="." unique_id=1321808308 instance=ExtResource("3_epypp")]
 position = Vector2(-149, -181)
 
-[node name="Area2D" parent="." unique_id=1816761192 instance=ExtResource("3_0hol4")]
-position = Vector2(102, -181)
-
 [node name="Area2D2" parent="." unique_id=318445073 instance=ExtResource("4_0hol4")]
 position = Vector2(-1.9073486e-06, 27.999998)
+
+[node name="Area2D" parent="." unique_id=1816761192 instance=ExtResource("3_0hol4")]
+position = Vector2(157, -223)
+
+[node name="Area2D3" parent="." unique_id=1814884045 instance=ExtResource("3_0hol4")]
+position = Vector2(302, -97)
+
+[node name="Area2D4" parent="." unique_id=1184641969 instance=ExtResource("5_q6r6c")]
+position = Vector2(505, -224)

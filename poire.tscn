@@ -1,14 +1,14 @@
-[gd_scene format=3 uid="uid://u68ace33yms2"]
+[gd_scene format=3 uid="uid://cp8cmvvn3ngqj"]
 
-[ext_resource type="Script" uid="uid://rvc60r0lqj0o" path="res://GameObjects.gd" id="1_ydkjr"]
-[ext_resource type="Resource" uid="uid://j3sawx1pyl5m" path="res://Apple.tres" id="2_ydkjr"]
+[ext_resource type="Script" uid="uid://rvc60r0lqj0o" path="res://GameObjects.gd" id="1_pfnhp"]
+[ext_resource type="Resource" uid="uid://jcl40f66k8jm" path="res://poire.tres" id="2_pfnhp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ydkjr"]
 radius = 27.856777
 
 [node name="Area2D" type="Area2D" unique_id=1816761192]
-script = ExtResource("1_ydkjr")
-data = ExtResource("2_ydkjr")
+script = ExtResource("1_pfnhp")
+data = ExtResource("2_pfnhp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1189088170]
 shape = SubResource("CircleShape2D_ydkjr")

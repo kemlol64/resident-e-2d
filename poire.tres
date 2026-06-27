@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Objet" format=3 uid="uid://jcl40f66k8jm"]
+
+[ext_resource type="Texture2D" uid="uid://xuxkd3n1o3ma" path="res://itch/pngs/pear.png" id="1_gcmfe"]
+[ext_resource type="Script" uid="uid://bwwns3qycu6k5" path="res://Objet.gd" id="1_vsn6p"]
+
+[resource]
+script = ExtResource("1_vsn6p")
+nom = "poire"
+type = "food"
+icon = ExtResource("1_gcmfe")
+metadata/_custom_type_script = "uid://bwwns3qycu6k5"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Objet" format=3 uid="uid://j3sawx1pyl5m"]
+
+[ext_resource type="Script" uid="uid://bwwns3qycu6k5" path="res://Objet.gd" id="1_1ly62"]
+[ext_resource type="Texture2D" uid="uid://dwb158rlp8ycg" path="res://itch/pngs/red-apple.png" id="1_h5nsa"]
+
+[resource]
+script = ExtResource("1_1ly62")
+nom = "Apple"
+type = "Food"
+icon = ExtResource("1_h5nsa")
+description = "just an Apple"
+metadata/_custom_type_script = "uid://bwwns3qycu6k5"

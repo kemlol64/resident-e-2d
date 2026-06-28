@@ -3,37 +3,45 @@
 [ext_resource type="Script" uid="uid://ddvlt3sxu45gm" path="res://case.gd" id="1_xnq1f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnq1f"]
-bg_color = Color(0.54610765, 0.59861505, 0.7299109, 1)
-border_width_left = 2
 
-[node name="Panel" type="Panel" unique_id=2013461924]
-custom_minimum_size = Vector2(150, 150)
-offset_right = 400.0
-offset_bottom = 400.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_xnq1f")
+[node name="Control" type="Control" unique_id=2053154485]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1206.0
+offset_bottom = 1141.0
 script = ExtResource("1_xnq1f")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=6437190]
+[node name="Panel" type="Panel" parent="." unique_id=15300470]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xnq1f")
+
+[node name="TextureRect" type="TextureRect" parent="Panel" unique_id=1997210089]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
-offset_left = 35.0
-offset_top = 12.0
-offset_right = 335.0
-offset_bottom = 312.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 expand_mode = 1
 stretch_mode = 6
 
-[node name="Label" type="Label" parent="." unique_id=2039240561]
-custom_minimum_size = Vector2(403, 74)
-layout_mode = 0
-offset_left = -2.0
-offset_top = 327.0
-offset_right = 401.0
-offset_bottom = 401.0
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Control" type="Control" parent="." unique_id=432249525]
-anchors_preset = 0
-offset_right = 405.0
-offset_bottom = 415.0
+[node name="Label" type="Label" parent="Panel" unique_id=1317705848]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -420.0
+offset_top = -283.0
+offset_bottom = 123.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.92399806, 0.9429241, 0.2801145, 1)

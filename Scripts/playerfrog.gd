@@ -12,7 +12,8 @@ extends CharacterBody2D
 @export var Armequiped: Arme
 var armes = preload("res://Arme_equipe.tscn")
 var balle = preload("res://ballePistol.tscn")
-var inventory =[]
+var inventoryObjet =[]
+var inventoryArme=[]
 @onready var inventaire_UI=$CanvasLayer/InventaireUI
 
 func _ready() -> void:
@@ -51,7 +52,7 @@ func _process(delta: float) -> void:
 			inventaire_UI.hide()
 			get_tree().paused = false
 		else :
-			inventaire_UI.refresh_inventory(inventory)
+			inventaire_UI.refresh_inventory(inventoryObjet,inventoryArme)
 			inventaire_UI.show()
 			get_tree().paused = true
 			
@@ -102,12 +103,10 @@ func Attack(enemy: Node2D = null):
 		enemy.health -= damage
 
 # RAMASSER FUNCTION //////////////////////
-func ramasser(Objetdata: Objet = null, Armedata: Arme = null):
-	if Armedata==null and Objetdata != null:
+func ramasser(Objetdata: Objet = null):
+	if Objetdata != null:
 		add_to_inventary(Objetdata)
-		for i in range(inventory.size()):
-			print(""+inventory[i].nom+",")
-		inventaire_UI.refresh_inventory(inventory)
+		inventaire_UI.refresh_inventory(inventoryObjet,inventoryArme)
 func CanInteract(InteractText: String = "[E]"):
 	interactlabel.set_text(InteractText)
 	interactlabel.show()
@@ -119,6 +118,9 @@ var arme_instance: Node2D = null
 var shoot_timer: float = 0.0
 
 func Equiper(ArmeData: Arme):
+	if inventoryArme.is_empty():
+		print("trop d'arme")
+		return false
 	Armequiped = ArmeData
 	for fils in GunSpawn.get_children():
 		fils.queue_free()
@@ -127,6 +129,7 @@ func Equiper(ArmeData: Arme):
 	newArme.global_position = GunSpawn.global_position
 	GunSpawn.add_child(newArme)
 	arme_instance = newArme
+	return true
 
 func shoot():
 	if Armequiped == null:
@@ -151,37 +154,67 @@ func fullList(list:Array):
 	return true
 	
 func add_to_inventary(objet:Objet):
-	if inventory.size()==10:
-		print("Liste Pleine")
-		return false
+	if objet.type=="Arme":
+		if inventoryArme.size()==2:
+			print("Armurerie Pleine")
+			return false
+		var item = Arme.new()
+		item.nom = objet.nom
+		item.type = objet.type
+		item.icon = objet.icon
+		item.description = objet.description
+		item.recover = objet.recover
+		item.Damage= objet.Damage
+		item.Cadence= objet.Cadence
+		item.chargeur= objet.chargeur
+		item.munition== objet.munition
+		inventoryArme.append(item)
+		
+		
+	else:
+		if inventoryObjet.size()==9:
+			print("Liste Pleine")
+			return false
 
-	for slot in inventory:
-		if slot.nom == objet.nom:
-			slot.quantite += 1
-			return
+		for item in inventoryObjet:
+			if item.nom == objet.nom:
+				item.quantite += 1
+				print("inventoryObjet : ", inventoryObjet.size())
+				return
 				
-	var item = Objet.new()
-	item.nom = objet.nom
-	item.type = objet.type
-	item.icon = objet.icon
-	item.description = objet.description
-	item.quantite = 1
-	item.recover = objet.recover
-	inventory.append(item)
+		var item = Objet.new()
+		item.nom = objet.nom
+		item.type = objet.type
+		item.icon = objet.icon
+		item.description = objet.description
+		item.quantite = 1
+		item.recover = objet.recover
+		print("inventoryObjet : ", inventoryObjet.size())
+		inventoryObjet.append(item)
 
 func miness_Item(item):
-	for i in range(inventory.size()):
-		if(inventory[i].nom==item.nom):
-			inventory[i].quantite-=1
-			print("1 element retire de l'item"+inventory[i].nom+": restant :"+str(inventory[i].quantite))
-			if inventory[i].quantite <= 0:
-				inventory.remove_at(i)
-			return true
+	if item.type=="Arme":
+		remove_from_inventory(item)
+	else:
+		for i in range(inventoryObjet.size()):
+			if(inventoryObjet[i].nom==item.nom):
+				inventoryObjet[i].quantite-=1
+				print("1 element retire de l'item"+inventoryObjet[i].nom+": restant :"+str(inventoryObjet[i].quantite))
+				if inventoryObjet[i].quantite <= 0:
+					inventoryObjet.remove_at(i)
+				return true
 
 func remove_from_inventory(item):
-	for i in range(inventory.size()):
-		if(inventory[i].nom==item.nom):
-			inventory.remove_at(i)
-			print("element supprime de l'inventaire")
-			return true
+	if item.type=="Arme":
+		for i in range(inventoryArme.size()):
+			if(inventoryArme[i].nom==item.nom):
+				inventoryArme.remove_at(i)
+				print("element supprime de l'Armurie")
+				return true
+	else:
+		for i in range(inventoryObjet.size()):
+			if(inventoryObjet[i].nom==item.nom):
+				inventoryObjet.remove_at(i)
+				print("element supprime de l'inventaire")
+				return true
 	

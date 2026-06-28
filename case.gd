@@ -1,13 +1,13 @@
-extends Panel
-@onready var itemTexture=$TextureRect
-@onready var ItemQuantity=$Label
+extends Control
+@onready var itemTexture=$Panel/TextureRect
+@onready var itemQuantity=$Panel/Label
 enum slotType {ARME, OBJET }
 enum slotState {NONE,HOVERED,SELECTED}
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	print("itemTexture node : ", itemTexture)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,8 +21,15 @@ func set_item(item:Objet,index:int): #item objet a mettre dans la case , index c
 	var slot_index=index
 	if(item==null):#Si la case ne contient pas encore d'ojet
 		itemTexture.texture=null
-		ItemQuantity.text=""
+		itemQuantity.text=""
 	else :#Si la case contient un objet de l'inventaire
-		itemTexture.texture=item.icon
-		ItemQuantity.text=str(item.quantite)
+		await get_tree().process_frame
+		itemTexture.texture = item.icon
+		print("size apres frame : ", itemTexture.size)
+		itemTexture.visible = true
+		print("visible : ", itemTexture.visible)
+		print("size : ", itemTexture.size)
+		print("texture apres assignation : ", itemTexture.texture)
+		if(item.type!="Arme"):
+			itemQuantity.text=str(item.quantite)
 	

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://rvc60r0lqj0o" path="res://GameObjects.gd" id="1_pfnhp"]
 [ext_resource type="Resource" uid="uid://jcl40f66k8jm" path="res://poire.tres" id="2_pfnhp"]
+[ext_resource type="Texture2D" uid="uid://xuxkd3n1o3ma" path="res://itch/pngs/pear.png" id="3_8ir16"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ydkjr"]
 radius = 27.856777
@@ -15,6 +16,7 @@ shape = SubResource("CircleShape2D_ydkjr")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=1747158259]
 scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_8ir16")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

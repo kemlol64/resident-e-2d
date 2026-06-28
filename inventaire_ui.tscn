@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://mp36ndnn8ydt" path="res://inventaire_ui.gd" id="1_wo248"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dluds"]
-bg_color = Color(0.8000394, 0.5059491, 0.5285767, 1)
+bg_color = Color(0.8, 0.5058824, 0.5294118, 0.20784314)
 
 [node name="InventaireUI" type="Control" unique_id=484283687]
 layout_mode = 3
@@ -18,10 +18,40 @@ offset_right = 906.0
 offset_bottom = 561.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_dluds")
 
-[node name="GridContainer" type="GridContainer" parent="Panel" unique_id=1125284565]
+[node name="BigContainer" type="Control" parent="." unique_id=1923193344]
+anchors_preset = 0
+offset_right = 906.0
+offset_bottom = 559.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BigContainer" unique_id=1300583788]
 layout_mode = 0
-offset_left = 61.0
-offset_top = 110.0
-offset_right = 1072.0
-offset_bottom = 553.0
+offset_left = 70.0
+offset_top = 124.0
+offset_right = 819.0
+offset_bottom = 503.0
+
+[node name="InventaireObjet" type="Control" parent="BigContainer/HBoxContainer" unique_id=2075785059]
+custom_minimum_size = Vector2(500, 400)
+layout_mode = 2
+
+[node name="GridObjetSlot" type="GridContainer" parent="BigContainer/HBoxContainer/InventaireObjet" unique_id=1766558493]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="InventaireArme" type="Control" parent="BigContainer/HBoxContainer" unique_id=187764643]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+
+[node name="GridArmeSlot" type="GridContainer" parent="BigContainer/HBoxContainer/InventaireArme" unique_id=1875282511]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 columns = 2

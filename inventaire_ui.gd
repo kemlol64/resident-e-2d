@@ -1,6 +1,7 @@
 extends Control
 var case = preload("res://Case.tscn")
-@onready var grid= $Panel/GridContainer
+@onready var gridObjet=$BigContainer/HBoxContainer/InventaireObjet/GridObjetSlot
+@onready var gridArme=$BigContainer/HBoxContainer/InventaireArme/GridArmeSlot
 var MAX_INVENTORY_CASES=10
 var player=preload("res://playerfrog.tscn")
 var slots=[]
@@ -16,17 +17,35 @@ func _process(delta: float) -> void:
 	
 #Cette fonction sert a creer les slots dans l'inventaire
 func initialise_inventory():
-	for i in range(MAX_INVENTORY_CASES):
-		var slot=case.instantiate()
-		grid.add_child(slot)
-		slots.append(slot) #Ici ont met les cases cree dans un tableau pour pouvoir y acceder avec leurs index
+	var i=0
+	while i<MAX_INVENTORY_CASES:
+		if i<9:
+			var slot=case.instantiate()
+			gridObjet.add_child(slot)
+			slots.append(slot)
+			i+=1
+		else:
+			var slot=case.instantiate()
+			gridArme.add_child(slot)
+			slots.append(slot)
+			i+=1
 	hide()
 
-func refresh_inventory(inventory: Array):
+func refresh_inventory(inventoryObjet: Array,inventoryArme: Array):
+	print("slots : ", slots.size(), " objets : ", inventoryObjet.size())
 	for i in range(slots.size()):
-		if i <inventory.size() :
-			slots[i].set_item(inventory[i],i)
+		if i <inventoryObjet.size() :
+			slots[i].set_item(inventoryObjet[i],i)
 		else : slots[i].set_item(null,i)
+	var j=0
+	for i in range(slots.size()):
+		if i <inventoryArme.size() :
+			slots[j].set_item(inventoryArme[i],i)
+			j+=1
+		else : 
+			slots[j].set_item(null,i)
+			j+=1
+			
 		
 	
 		

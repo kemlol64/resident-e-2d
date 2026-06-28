@@ -6,12 +6,10 @@
 
 [resource]
 script = ExtResource("1_srpvy")
-icon = ExtResource("1_3fjaj")
-name = "pistole"
-desc = "pistole"
-Viseur = "0"
 Damage = "10"
 Cadence = "1"
 chargeur = 100
 munition = ExtResource("2_yea18")
+type = "Arme"
+icon = ExtResource("1_3fjaj")
 metadata/_custom_type_script = "uid://dw8o8ik48ewcf"
